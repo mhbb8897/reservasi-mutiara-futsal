@@ -12,12 +12,25 @@ return new class extends Migration {
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('lapangan_id')->constrained('lapangans')->onDelete('cascade');
+
+            // Relasi ke tabel users dan lapangans
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade');
+
+            $table->foreignId('lapangan_id')
+                ->constrained('lapangans')
+                ->onDelete('cascade');
+
+            // Data booking
             $table->date('tanggal_booking');
             $table->time('waktu_mulai');
             $table->time('waktu_selesai');
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+
+            // Status booking
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])
+                ->default('pending');
+
             $table->timestamps();
         });
     }

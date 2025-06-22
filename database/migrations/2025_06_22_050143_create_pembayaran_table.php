@@ -12,12 +12,16 @@ return new class extends Migration {
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
+
+            // Relasi ke booking
             $table->foreignId('booking_id')->constrained()->onDelete('cascade');
-            $table->string('metode_pembayaran'); // contoh: qris, transfer, cash
-            $table->decimal('total', 10, 2);
-            $table->string('bukti_pembayaran')->nullable(); // bisa upload bukti bayar
-            $table->timestamp('paid_at')->nullable();
+
+            // Informasi pembayaran
+            $table->string('metode_pembayaran')->default('qris'); // tetap ada jika ingin fleksibel ke depan
+            $table->decimal('total', 10, 2); // total yang dibayarkan
+            $table->timestamp('paid_at')->nullable(); // waktu pembayaran
             $table->enum('status', ['waiting', 'paid', 'failed'])->default('waiting');
+
             $table->timestamps();
         });
     }

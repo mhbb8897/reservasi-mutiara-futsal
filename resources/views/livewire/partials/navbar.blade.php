@@ -42,7 +42,6 @@
                             href="/lapangan">
                             Pilih Lapangan
                         </a>
-
                         {{-- <a href="/booking"
                             class="font-medium flex items-center
           {{ request()->is('booking') ? 'text-orange-600' : 'text-gray-500' }}
@@ -61,8 +60,6 @@
                             </svg>
                             <span class="mr-1">Booking</span>
                         </a> --}}
-
-
                         @guest
                             <div class="pt-3 md:pt-0">
                                 <a class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -77,7 +74,6 @@
                                 </a>
                             </div>
                         @endguest
-
                         @auth
                             <div class="hs-dropdown relative inline-flex"
                                 data-hs-dropdown-trigger="click">

@@ -18,9 +18,7 @@
                                 ? $lapangan->images
                                 : json_decode($lapangan->images, true);
                             $imagePath = $images[0] ?? null;
-                            $imageUrl = $imagePath
-                                ? asset('storage/' . ltrim($imagePath, '/'))
-                                : 'https://via.placeholder.com/300x200?text=No+Image';
+                            $imageUrl = $imagePath ? asset("storage/" . ltrim($imagePath, "/")) : asset("storage/image/lapangan-a.jpg");
                         @endphp
                         <img src="{{ $imageUrl }}" alt="{{ $lapangan->nama }}" class="object-cover w-full h-56">
 
@@ -28,10 +26,10 @@
                             <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                                 {{ $lapangan->nama }}</h3>
                             <p class="text-blue-600 text-base mb-4 dark:text-blue-400">
-                                Rp {{ number_format($lapangan->harga_per_jam, 0, ',', '.') }} / jam
+                                Rp {{ number_format($lapangan->harga_per_jam, 0, ",", ".") }} / jam
                             </p>
                             <div class="mt-auto">
-                                <a href="{{ route('jadwal.page', $lapangan->id) }}"
+                                <a href="{{ route("jadwal.page", $lapangan->id) }}"
                                     class="flex justify-center items-center gap-2 text-white bg-orange-600 hover:bg-orange-700 py-2 px-4 rounded shadow dark:bg-green-500 dark:hover:bg-green-600">
                                     Lihat Jadwal
                                 </a>

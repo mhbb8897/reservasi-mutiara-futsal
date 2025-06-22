@@ -1,8 +1,8 @@
 <div>
-    @if (session('success'))
+    @if (session("success"))
         <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
             class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow z-50">
-            {{ session('success') }}
+            {{ session("success") }}
         </div>
     @endif
     <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
@@ -26,9 +26,9 @@
                         <!-- Form -->
                         <form wire:submit.prevent='save'>
 
-                            @if (session('error'))
+                            @if (session("error"))
                                 <div class="bg-red-500 text-sm text-white rounded-lg p-4 mb-4" role="alert">
-                                    {{ session('error') }}
+                                    {{ session("error") }}
                                 </div>
                             @endif
 
@@ -41,7 +41,7 @@
                                         <input type="email" id="email" wire:model="email"
                                             class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                             aria-describedby="email-error">
-                                        @error('email')
+                                        @error("email")
                                             <div
                                                 class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
                                                 <svg class="h-5 w-5 text-red-500" width="16" height="16"
@@ -52,7 +52,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    @error('email')
+                                    @error("email")
                                         <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -70,7 +70,7 @@
                                         <input type="password" id="password" wire:model="password"
                                             class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                             required aria-describedby="password-error">
-                                        @error('password')
+                                        @error("password")
                                             <div
                                                 class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
                                                 <svg class="h-5 w-5 text-red-500" width="16" height="16"
@@ -81,11 +81,33 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    @error('password')
+                                    @error("password")
                                         <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <!-- End Form Group -->
+                                {{-- Capthca Form --}}
+                                <div>
+                                    <label for="captcha" class="block text-sm mb-2 dark:text-white">Captcha</label>
+                                    <div class="flex items-center space-x-2">
+                                        <div>
+                                            <img src="{{ captcha_src("flat") }}" alt="captcha" class="rounded border"
+                                                id="captchaImg">
+                                        </div>
+                                        <button type="button"
+                                            onclick="document.getElementById('captchaImg').src='/captcha?'+Math.random()"
+                                            class="text-sm text-blue-600 hover:underline">
+                                            Refresh
+                                        </button>
+                                    </div>
+                                    <input type="text" id="captcha" wire:model="captcha"
+                                        placeholder="Masukkan kode di atas"
+                                        class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+                                    @error("captcha")
+                                        <p class="text-xs text-red-600 mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                {{-- End Capthca Form --}}
                                 <button type="submit"
                                     class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign
                                     in</button>

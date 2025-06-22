@@ -1,16 +1,17 @@
 import './bootstrap';
+import Swal from 'sweetalert2';
+import Alpine from 'alpinejs';
+import 'preline';
+import { HSStaticMethods } from 'preline';
 
-// import Swal from 'sweetalert2';
-// window.Swal = Swal;
+// Untuk Alpine
+window.Alpine = Alpine;
+Alpine.start();
 
-// import Alpine from 'alpinejs';
-// import 'preline';
+// Untuk SweetAlert bisa dipakai langsung dalam script seperti ini:
+window.Swal = Swal;
 
-// window.Alpine = Alpine;
-// Alpine.start();
 
-// import { HSStaticMethods } from 'preline';
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     HSStaticMethods.autoInit();
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    HSStaticMethods.autoInit();
+});
