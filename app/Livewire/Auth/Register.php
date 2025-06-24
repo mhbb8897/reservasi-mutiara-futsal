@@ -4,15 +4,11 @@ namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Livewire\Attributes\Title as AttributesTitle;
 
 class Register extends Component
     {
-        public $name;
-        public $email;
-        public $password;
+        public $name,$email,$password, $captcha;
 
         public function save()
     {
@@ -20,6 +16,7 @@ class Register extends Component
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|min:6|max:255',
+            'captcha' => 'required|captcha',
         ]);
 
         User::create([

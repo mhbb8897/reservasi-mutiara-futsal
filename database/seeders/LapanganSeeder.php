@@ -26,7 +26,7 @@ class LapanganSeeder extends Seeder
             [
                 'nama' => 'Lapangan C',
                 'deskripsi' => 'Lantai Interlock',
-                'harga_per_jam' => 130000,
+                'harga_per_jam' => 150000,
                 'images' => json_encode(['image/lapangan-c.jpg']),
             ],
         ];

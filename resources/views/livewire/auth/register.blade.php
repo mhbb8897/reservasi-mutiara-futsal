@@ -22,7 +22,7 @@
                             <div>
                                 <label for="name" class="block text-sm mb-2 dark:text-white">Name</label>
                                 <div class="relative">
-                                    <input type="text" id="name" wire:model="name"
+                                    <input type="text" id="name" wire:model="name" tabindex="1"
                                         class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                         aria-describedby="email-error">
                                     @error("name")
@@ -43,7 +43,7 @@
                             <div>
                                 <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
                                 <div class="relative">
-                                    <input type="email" id="email" wire:model="email"
+                                    <input type="email" id="email" wire:model="email" tabindex="2"
                                         class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                         aria-describedby="email-error">
                                     @error("email")
@@ -69,7 +69,7 @@
 
                                 </div>
                                 <div class="relative">
-                                    <input type="password" id="password" wire:model="password"
+                                    <input type="password" id="password" wire:model="password" tabindex="3"
                                         class="py-3 border px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                                         aria-describedby="password-error">
                                     @error("password")
@@ -101,7 +101,7 @@
                                         Refresh
                                     </button>
                                 </div>
-                                <input type="text" id="captcha" wire:model="captcha"
+                                <input type="text" id="captcha" wire:model="captcha" tabindex="4"
                                     placeholder="Masukkan kode di atas"
                                     class="mt-2 py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                                 @error("captcha")

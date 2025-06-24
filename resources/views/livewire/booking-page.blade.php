@@ -11,8 +11,7 @@
     {{-- Tanggal Booking --}}
     <div class="mb-4">
         <label class="block mb-1 font-medium">Tanggal Booking</label>
-        <input type="date" wire:model.defer="tanggal_booking"
-            class="w-full border rounded px-3 py-2 text-black">
+        <input type="date" wire:model.defer="tanggal_booking" class="w-full border rounded px-3 py-2 text-black">
         @error('tanggal_booking')
             <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
@@ -24,7 +23,8 @@
         <select wire:model.defer="jam_main" class="w-full border rounded px-3 py-2 text-black">
             <option value="">-- Pilih Jam --</option>
             @for ($i = 9; $i <= 23; $i++)
-                <option value="{{ sprintf('%02d:00', $i) }}">{{ sprintf('%02d:00', $i) }} - {{ sprintf('%02d:00', $i+1) }}</option>
+                <option value="{{ sprintf('%02d:00', $i) }}">{{ sprintf('%02d:00', $i) }} -
+                    {{ sprintf('%02d:00', $i + 1) }}</option>
             @endfor
         </select>
         @error('jam_main')

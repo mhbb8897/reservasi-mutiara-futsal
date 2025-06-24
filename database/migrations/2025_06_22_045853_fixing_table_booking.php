@@ -28,9 +28,9 @@ return new class extends Migration {
             $table->time('waktu_selesai');
 
             // Status booking
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])
-                ->default('pending');
-
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('jenis_pembayaran', ['dp', 'setengah', 'penuh']);
+            $table->integer('nominal');
             $table->timestamps();
         });
     }

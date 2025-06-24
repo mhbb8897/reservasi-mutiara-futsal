@@ -5,7 +5,7 @@
             <div>
                 @php
                     $images = json_decode($lapangan->images, true);
-                    $imageUrl = $images[0] ?? 'https://via.placeholder.com/500x300?text=No+Image';
+                    $imageUrl = $images[0];
                 @endphp
                 <img src="{{ asset('storage/' . $imageUrl) }}" class="w-full h-64 object-cover rounded-lg shadow"
                     alt="Lapangan">
@@ -15,7 +15,7 @@
                 <p class="text-gray-700 mb-4">{{ $lapangan->deskripsi }}</p>
                 <p class="text-green-600 font-semibold text-lg mb-2">Rp
                     {{ number_format($lapangan->harga_per_jam, 0, ',', '.') }} / jam</p>
-                <p class="text-sm text-gray-500 mb-2">Jam Operasional: 07.00 - 00.00 WIB</p>
+                <p class="text-sm text-gray-500 mb-2">Jam Operasional: 09.00 - 23.00 WIB</p>
 
                 <div class="mt-6 flex items-center gap-4">
                     <div>

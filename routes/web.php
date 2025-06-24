@@ -10,6 +10,7 @@ use App\Livewire\JadwalPage;
 use App\Livewire\LapanganPage;
 use App\Livewire\PembayaranPage;
 use App\Livewire\ProfilPage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class);
@@ -23,7 +24,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 Route::get('/booking/{lapangan}', BookingPage::class)->name('booking.page');
-Route::get('/pembayaran/{booking}', PembayaranPage::class)->name('pembayaran.page');
+Route::get('/pembayaran', PembayaranPage::class)->name('pembayaran.page');
 Route::get('/riwayat', HistoryPage::class)->name('riwayat.page');
 Route::get('/profil', ProfilPage::class)->name('profil');
 Route::get('/profil/edit', EditProfilPage::class)->name('edit-profil');
@@ -32,3 +33,9 @@ Route::get('/logout', function (){
         return redirect('/');
     });
 });
+// Midtrans Payment Gateway
+// Route::post('/midtrans/notification', [PaymentController::class, 'handleNotification']);
+// Route::get('/midtrans/checkout/{token}', function ($token) {
+//     return view('midtrans.checkout', compact('token'));
+// })->name('midtrans.checkout');
+

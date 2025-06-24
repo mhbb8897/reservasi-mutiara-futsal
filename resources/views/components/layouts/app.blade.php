@@ -18,9 +18,9 @@
     </main>
     @livewire('partials.footer')
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/preline@1.8.0/dist/preline.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/preline@1.8.0/dist/preline.min.js"></script> --}}
     {{-- <x-livewire-alert::scripts /> --}}
 
     {{-- <livewire-alert::flash /> --}}
