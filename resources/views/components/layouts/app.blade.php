@@ -4,26 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/x-icon" href="/storage/image/image.png">
     <title>{{ $title ?? 'Mutiara Futsal' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <x-livewire-alert::styles /> --}}
     @livewireStyles
 </head>
 
-<body class='min-h-screen flex flex-col bg-slate-200 dark:bg-slate-700'>
+<body class='min-h-screen flex flex-col bg-slate-200 dark:bg-slate-700 '>
     @livewire('partials.navbar')
-    <main class="flex-grow" >
+    <main class="flex-grow  bg-cover bg-center py-10" style="background-image: url('{{ asset('storage/image/bg-futsal.jpg') }}')">
         {{ $slot }}
     </main>
     @livewire('partials.footer')
     @livewireScripts
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/preline@1.8.0/dist/preline.min.js"></script> --}}
-    {{-- <x-livewire-alert::scripts /> --}}
-
-    {{-- <livewire-alert::flash /> --}}
 </body>
 
 </html>

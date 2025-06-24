@@ -1,4 +1,4 @@
-<div class="max-w-6xl mx-auto py-10 px-4">
+<div class="max-w-6xl mx-auto py-10 px-4 " >
     <div class="bg-white rounded-lg shadow p-6">
         <!-- Header -->
         <div class="grid md:grid-cols-2 gap-6">
@@ -26,7 +26,7 @@
 
                     <div class="pt-6">
                         <button wire:click="loadBookings"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow">
+                            class="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer text-white font-semibold px-4 py-2 rounded shadow">
                             Cari
                         </button>
                     </div>
@@ -35,42 +35,56 @@
         </div>
 
         <!-- Booking Table -->
-        <div class="mt-8">
-            <h3 class="text-lg font-semibold mb-3">Jadwal Booking ({{ $tanggal }})</h3>
-            <table class="min-w-full border text-sm">
-                <thead class="bg-gray-100">
-                    <tr>
-                        <th class="border px-3 py-2 text-left">Penyewa</th>
-                        <th class="border px-3 py-2 text-left">Waktu Mulai</th>
-                        <th class="border px-3 py-2 text-left">Waktu Selesai</th>
-                        <th class="border px-3 py-2 text-left">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($bookings as $booking)
+        <div class="mt-10">
+            <h3 class="text-xl font-bold mb-5 text-gray-800">
+                Jadwal Booking ({{ \Carbon\Carbon::parse($tanggal)->translatedFormat('l, d F Y') }})
+            </h3>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-x-auto transition duration-300">
+                <table class="min-w-full text-sm border border-gray-200 dark:border-gray-700">
+                    <thead class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                         <tr>
-                            <td class="border px-3 py-2">{{ $booking->user->name ?? '-' }}</td>
-                            <td class="border px-3 py-2">
-                                {{ \Carbon\Carbon::parse($booking->waktu_mulai)->format('H:i') }}</td>
-                            <td class="border px-3 py-2">
-                                {{ \Carbon\Carbon::parse($booking->waktu_selesai)->format('H:i') }}</td>
-                            <td class="border px-3 py-2 capitalize">{{ $booking->status }}</td>
+                            <th class="border px-4 py-3 text-left">Penyewa</th>
+                            <th class="border px-4 py-3 text-left">Waktu Mulai</th>
+                            <th class="border px-4 py-3 text-left">Waktu Selesai</th>
+                            <th class="border px-4 py-3 text-left">Status</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center py-3 text-gray-500">Belum ada booking</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($bookings as $booking)
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 text-white">
+                                <td class="border px-4 py-2">{{ $booking->user->name ?? '-' }}</td>
+                                <td class="border px-4 py-2">{{ \Carbon\Carbon::parse($booking->waktu_mulai)->format('H:i') }}</td>
+                                <td class="border px-4 py-2">{{ \Carbon\Carbon::parse($booking->waktu_selesai)->format('H:i') }}</td>
+                                <td class="border px-4 py-2 capitalize">{{ $booking->status }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center py-6 text-gray-500 dark:text-gray-400">
+                                    <div class="flex flex-col items-center">
+                                        <svg class="w-10 h-10 mb-2 text-gray-400" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M13 16h-1v-4h-1m1-4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+                                        </svg>
+                                        <span class="text-sm font-medium">
+                                            Belum ada booking di tanggal {{ \Carbon\Carbon::parse($tanggal)->translatedFormat('d F Y') }}.
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tombol Booking -->
+            <div class="mt-6 flex justify-end">
+                <a href="{{ route('booking.page', $lapangan->id) }}"
+                    class="bg-blue-600 hover:bg-blue-700 transition text-white font-semibold px-6 py-2 rounded shadow">
+                    Booking Sekarang
+                </a>
+            </div>
         </div>
 
-        <!-- Button Booking -->
-        <div class="mt-6 flex justify-end">
-            <a href="{{ route('booking.page', $lapangan->id) }}"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded shadow">
-                Booking Sekarang
-            </a>
-        </div>
     </div>
-</div>

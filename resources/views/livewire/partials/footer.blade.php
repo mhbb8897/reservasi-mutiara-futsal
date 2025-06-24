@@ -1,5 +1,5 @@
-<footer class="bg-orange-300 w-full">
-  <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
+<footer class="bg-orange-300 w-full ">
+  <div class="w-full max-w-[85rem] py-5 px-4 sm:px-5 lg:px-5 lg:pt-10 mx-auto">
     <!-- Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
       <div class="col-span-full lg:col-span-1">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="col-span-2">
-        <h4 class="font-semibold text-gray-900">Stay up to date</h4>
+        <h4 class="font-semibold text-gray-900">Stay up to date with Mutiara Futsal!</h4>
         <form>
           <div class="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-lg p-2">
             <div class="w-full">
@@ -42,7 +42,7 @@
     </div>
     <!-- End Grid -->
 
-    <div class="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
+    <div class="mt-5 sm:mt-5 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
       <p class="text-sm text-gray-700">© 2024 Kelompok 4. All rights reserved.</p>
 
       <!-- Social Brands -->

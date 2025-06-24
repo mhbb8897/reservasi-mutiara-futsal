@@ -9,9 +9,7 @@ use Carbon\Carbon;
 
 class JadwalPage extends Component
 {
-    public $lapangan;
-    public $tanggal;
-    public $bookings = [];
+    public $lapangan, $tanggal, $bookings = [];
 
     public function mount($lapanganId)
     {

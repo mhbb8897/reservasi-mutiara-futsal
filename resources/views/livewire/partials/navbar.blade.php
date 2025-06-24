@@ -3,28 +3,31 @@
     <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
         <div class="relative md:flex md:items-center md:justify-between">
             <div class="flex items-center justify-between">
-                <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                <a class="flex-none text-xl font-semibold dark:text-white dark:focus:outline-none  dark:focus:ring-gray-600"
                     href="/" aria-label="Brand">Mutiara Futsal</a>
                 <div class="md:hidden">
                     <button type="button"
-                        class="hs-collapse-toggle flex justify-center items-center w-9 h-9 text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                        data-hs-collapse="#navbar-collapse-with-animation"
-                        aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
-                        <svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" x2="21" y1="6" y2="6" />
-                            <line x1="3" x2="21" y1="12" y2="12" />
-                            <line x1="3" x2="21" y1="18" y2="18" />
-                        </svg>
-                        <svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M18 6 6 18" />
-                            <path d="m6 6 12 12" />
-                        </svg>
-                    </button>
+                    class="hs-collapse-toggle flex justify-center items-center w-9 h-9 text-sm font-semibold rounded-lg border border-white text-white hover:bg-white/10 dark:border-white dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+                    data-hs-collapse="#navbar-collapse-with-animation"
+                    aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+
+                    <!-- Ikon buka -->
+                    <svg class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" x2="21" y1="6" y2="6" />
+                        <line x1="3" x2="21" y1="12" y2="12" />
+                        <line x1="3" x2="21" y1="18" y2="18" />
+                    </svg>
+
+                    <!-- Ikon tutup -->
+                    <svg class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+
                 </div>
             </div>
 
@@ -35,10 +38,10 @@
                     <div
                         class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
 
-                        <a class="font-medium {{ request()->is('/') ? 'text-orange-600' : 'text-gray-500' }} py-3 md:py-6 dark:text-orange-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="font-medium {{ request()->is('/') ? 'text-orange-600' : 'text-gray-500' }} py-3 md:py-6 dark:text-orange-500   "
                             href="/" aria-current="page">Home</a>
 
-                        <a class="font-medium {{ request()->is('lapangan') ? 'text-orange-600' : 'text-gray-500' }} hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="font-medium {{ request()->is('lapangan') }} text-white hover:text-gray-500 py-3 md:py-6   "
                             href="/lapangan">
                             Pilih Lapangan
                         </a>
@@ -46,7 +49,7 @@
                             class="font-medium flex items-center
           {{ request()->is('booking') ? 'text-orange-600' : 'text-gray-500' }}
           hover:text-gray-400 py-3 md:py-6
-          dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+          dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none . dark:focus:ring-gray-600">
 
                             <!-- Ikon trolley -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -62,7 +65,7 @@
                         </a> --}}
                         @guest
                             <div class="pt-3 md:pt-0">
-                                <a class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                <a class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none"
                                     href="/login">
                                     <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -75,18 +78,17 @@
                             </div>
                         @endguest
                         @auth
-                            <div class="hs-dropdown relative inline-flex"
-                                data-hs-dropdown-trigger="click">
+                            <div class="hs-dropdown relative inline-flex py-2" data-hs-dropdown-trigger="click">
                                 <button type="button"
-                                    class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                                    class="flex items-center text-sm font-medium text-white cursor-pointer hover:text-gray-500">
 
                                     <!-- Ikon user -->
-                                    {{-- <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M5.121 17.804A11.963 11.963 0 0112 15c2.623 0 5.046.84 6.879 2.255M15 11a3 3 0 11-6 0 3 3 0 016 0z">
                                         </path>
-                                    </svg> --}}
+                                    </svg>
 
                                     <!-- Nama pengguna -->
                                     <span>{{ auth()->user()->name }}</span>
@@ -99,19 +101,15 @@
                                     </svg>
                                 </button>
 
-                                <div
-                                    class="hs-dropdown-menu hidden z-10 mt-2 w-48 bg-white shadow-md rounded-lg p-2"
+                                <div class="hs-dropdown-menu hidden z-10 mt-2 w-48 bg-white shadow-md rounded-lg p-2"
                                     aria-labelledby="hs-dropdown-with-header">
-                                    <a href="{{ route('riwayat.page') }}"
-                                        class="block px-4 py-2 text-sm hover:bg-gray-100">
+                                    <a href="{{ route('riwayat.page') }}" class="block px-4 py-2 text-sm hover:bg-gray-100">
                                         History
                                     </a>
-                                    <a href="{{ route('profil') }}"
-                                        class="block px-4 py-2 text-sm hover:bg-gray-100">
+                                    <a href="{{ route('profil') }}" class="block px-4 py-2 text-sm hover:bg-gray-100">
                                         My Account
                                     </a>
-                                    <a href="/logout"
-                                        class="block px-4 py-2 text-sm hover:bg-gray-100">
+                                    <a href="/logout" class="block px-4 py-2 text-sm hover:bg-gray-100">
                                         Logout
                                     </a>
                                 </div>

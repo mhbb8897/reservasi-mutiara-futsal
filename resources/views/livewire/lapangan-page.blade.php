@@ -1,13 +1,13 @@
 <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <section class="py-10 bg-gray-50 font-poppins dark:bg-gray-800 rounded-lg">
         <div class="px-4 py-4 mx-auto max-w-7xl lg:py-6 md:px-6">
-            <div class="mb-6 flex justify-end">
+            {{-- <div class="mb-6 flex justify-end">
                 <select wire:model.live="sort"
                     class="block w-44 px-3 py-2 text-base bg-gray-100 rounded-md shadow-sm cursor-pointer dark:text-gray-400 dark:bg-gray-900">
                     <option value="latest">Sort by Latest</option>
                     <option value="price">Sort by Price</option>
                 </select>
-            </div>
+            </div> --}}
 
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
                 @foreach ($lapangans as $lapangan)
