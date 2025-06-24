@@ -22,11 +22,13 @@ class JadwalPage extends Component
 
     public function updatedTanggal()
     {
-        //
+        $this->loadBookings();
     }
 
     public function loadBookings()
     {
+        // logger("Load bookings for tanggal: " . $this->tanggal);
+
         $this->bookings = Booking::where('lapangan_id', $this->lapangan->id)
             ->where('tanggal_booking', $this->tanggal)
             ->orderBy('waktu_mulai')
