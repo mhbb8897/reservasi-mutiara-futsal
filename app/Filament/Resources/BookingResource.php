@@ -23,50 +23,34 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class BookingResource extends Resource
 {
     protected static ?string $model = Booking::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
-
     protected static ?string $navigationLabel = 'Data Booking';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('id')
-                    ->label('Id Pengguna')
-                    ->required(),
                 Select::make('user_id')
                     ->label('Pengguna')
                     ->relationship('user', 'name')
                     ->required(),
-
                 Select::make('lapangan_id')
                     ->label('Lapangan')
                     ->relationship('lapangan', 'nama')
                     ->required(),
-                // Select::make('jenis_pembayaran')
-                //     ->label('Keterangan Pembayaran')
-                //     ->options([
-                //         'pending' => 'Menunggu',
-                //         'confirmed' => 'Dikonfirmasi',
-                //         'cancelled' => 'Dibatalkan',
-                //     ])
-                //     ->required(),
-                Select::make('nominal')
-                    ->label('Nominal')
-                    ->options([
-                        '50000' => 'Rp 50.000',
-                        '100000' => 'Rp 100.000',
-                        '150000' => 'Rp 150.000',
-                    ])
-                    ->required(),
                 DatePicker::make('tanggal_booking')
                     ->label('Tanggal Booking')
                     ->required(),
-
                 TimePicker::make('waktu_mulai')->label('Waktu Mulai')->required(),
                 TimePicker::make('waktu_selesai')->label('Waktu Selesai')->required(),
-
+                Select::make('nominal')
+                    ->label('Nominal')
+                    ->options([
+                        '10000' => 'Rp 10.000',
+                        '75000' => 'Rp 75.000',
+                        '150000' => 'Rp 150.000',
+                    ])
+                    ->required(),
                 ToggleButtons::make('status')
                     ->options([
                         'pending' => 'Pending',

@@ -13,7 +13,7 @@ class Pembayaran extends Model
         'booking_id',
         'metode_pembayaran',
         'total',
-        'bukti_pembayaran',
+        'ket_pembayaran',
         'paid_at',
         'status',
     ];

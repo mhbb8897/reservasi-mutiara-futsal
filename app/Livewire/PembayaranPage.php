@@ -62,7 +62,7 @@ class PembayaranPage extends Component
             'tanggal_booking' => $data['tanggal_booking'],
             'waktu_mulai' => $data['waktu_mulai'],
             'waktu_selesai' => $data['waktu_selesai'],
-            'jenis_pembayaran' => $data['jenis_pembayaran'],
+            'ket_pembayaran' => $data['ket_pembayaran'],
             'nominal' => $data['nominal'],
         ]);
 
@@ -70,6 +70,7 @@ class PembayaranPage extends Component
             'booking_id' => $booking->id,
             'total' => $booking->nominal,
             'status' => 'waiting',
+            'metode_pembayaran' => 'qris',
             'paid_at' => now(),
         ]);
 

@@ -66,7 +66,8 @@ class PembayaranResource extends Resource
             ->columns([
                 TextColumn::make('booking.user.name')->label('Pengguna'),
                 TextColumn::make('booking.lapangan.nama')->label('Lapangan'),
-                TextColumn::make('metode_pembayaran')->label('Metode'),
+                TextColumn::make('ket_pembayaran')->label('Keterangan Pembayaran'),
+                TextColumn::make('metode_pembayaran')->label('Metode Pembayaran'),
                 TextColumn::make('total')->money('IDR'),
                 SelectColumn::make('status')
                     ->options([

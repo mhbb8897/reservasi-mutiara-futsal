@@ -16,7 +16,7 @@ class Booking extends Model
         'waktu_mulai',
         'waktu_selesai',
         'status',
-        'jenis_pembayaran',
+        'ket_pembayaran',
         'nominal'
     ];
 
