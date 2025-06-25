@@ -31,19 +31,20 @@
 </div>
 
 <!-- Midtrans Script -->
-<script src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="{{ config('SB-Mid-client-0VqtZFWagdCwhN77') }}"></script>
-
+<script
+  src="https://app.sandbox.midtrans.com/snap/snap.js"
+  data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}">
+</script>
 <script>
     document.getElementById('bayar-btn').addEventListener('click', function() {
         snap.pay(@json($snapToken), {
-            onSuccess: function (result) {
+            onSuccess: function(result) {
                 Livewire.dispatch('paymentSuccess');
             },
-            onPending: function (result) {
+            onPending: function(result) {
                 console.log("pending", result);
             },
-            onError: function (result) {
+            onError: function(result) {
                 console.error("error", result);
             }
         });

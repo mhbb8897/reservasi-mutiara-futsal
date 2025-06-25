@@ -3,22 +3,16 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PembayaranResource\Pages;
-use App\Filament\Resources\PembayaranResource\RelationManagers;
 use App\Models\Pembayaran;
-use Filament\Forms;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PembayaranResource extends Resource
 {
@@ -52,15 +46,7 @@ class PembayaranResource extends Resource
                     ->prefix('Rp')
                     ->required(),
 
-                FileUpload::make('bukti_pembayaran')
-                    ->label('Bukti Pembayaran')
-                    ->directory('bukti-pembayaran')
-                    ->image()
-                    ->imagePreviewHeight('150')
-                    ->downloadable()
-                    ->nullable(),
-
-                DateTimePicker::make('paid_at')
+                DatePicker::make('paid_at')
                     ->label('Tanggal Pembayaran')
                     ->nullable(),
 
@@ -116,7 +102,7 @@ class PembayaranResource extends Resource
     {
         return [
             'index' => Pages\ListPembayarans::route('/'),
-            'create' => Pages\CreatePembayaran::route('/create'),
+            // 'create' => Pages\CreatePembayaran::route('/create'),
             'edit' => Pages\EditPembayaran::route('/{record}/edit'),
         ];
     }

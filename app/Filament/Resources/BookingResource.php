@@ -32,18 +32,34 @@ class BookingResource extends Resource
     {
         return $form
             ->schema([
+                Select::make('id')
+                    ->label('Id Pengguna')
+                    ->required(),
                 Select::make('user_id')
                     ->label('Pengguna')
                     ->relationship('user', 'name')
-                    ->searchable()
                     ->required(),
 
                 Select::make('lapangan_id')
                     ->label('Lapangan')
                     ->relationship('lapangan', 'nama')
-                    ->searchable()
                     ->required(),
-
+                // Select::make('jenis_pembayaran')
+                //     ->label('Keterangan Pembayaran')
+                //     ->options([
+                //         'pending' => 'Menunggu',
+                //         'confirmed' => 'Dikonfirmasi',
+                //         'cancelled' => 'Dibatalkan',
+                //     ])
+                //     ->required(),
+                Select::make('nominal')
+                    ->label('Nominal')
+                    ->options([
+                        '50000' => 'Rp 50.000',
+                        '100000' => 'Rp 100.000',
+                        '150000' => 'Rp 150.000',
+                    ])
+                    ->required(),
                 DatePicker::make('tanggal_booking')
                     ->label('Tanggal Booking')
                     ->required(),
@@ -52,19 +68,19 @@ class BookingResource extends Resource
                 TimePicker::make('waktu_selesai')->label('Waktu Selesai')->required(),
 
                 ToggleButtons::make('status')
-                            ->options([
-                                'pending' => 'Pending',
-                                'confirmed' => 'Disetujui',
-                                'cancelled' => 'Dibatalkan',
-                            ])
-                            ->inline()
-                            ->default('pending')
-                            ->required()
-                            ->colors([
-                                'pending' => 'warning',
-                                'confirmed' => 'success',
-                                'cancelled' => 'danger',
-                            ])
+                    ->options([
+                        'pending' => 'Pending',
+                        'confirmed' => 'Disetujui',
+                        'cancelled' => 'Dibatalkan',
+                    ])
+                    ->inline()
+                    ->default('pending')
+                    ->required()
+                    ->colors([
+                        'pending' => 'warning',
+                        'confirmed' => 'success',
+                        'cancelled' => 'danger',
+                    ])
             ]);
     }
 
@@ -111,7 +127,7 @@ class BookingResource extends Resource
     {
         return [
             'index' => Pages\ListBookings::route('/'),
-            'create' => Pages\CreateBooking::route('/create'),
+            // 'create' => Pages\CreateBooking::route('/create'),
             'edit' => Pages\EditBooking::route('/{record}/edit'),
         ];
     }

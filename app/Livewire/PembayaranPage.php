@@ -38,6 +38,7 @@ class PembayaranPage extends Component
             ],
             'customer_details' => [
                 'first_name' => Auth::user()->name,
+                'phone' => Auth::user()->phone,
                 'email' => Auth::user()->email,
             ],
         ];

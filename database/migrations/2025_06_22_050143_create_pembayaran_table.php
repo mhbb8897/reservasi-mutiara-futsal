@@ -15,7 +15,6 @@ return new class extends Migration {
 
             // Relasi ke booking
             $table->foreignId('booking_id')->constrained()->onDelete('cascade');
-
             // Informasi pembayaran
             $table->string('metode_pembayaran')->default('qris'); // tetap ada jika ingin fleksibel ke depan
             $table->decimal('total', 10, 2); // total yang dibayarkan

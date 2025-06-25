@@ -23,19 +23,19 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-Route::get('/booking/{lapangan}', BookingPage::class)->name('booking.page');
-Route::get('/pembayaran', PembayaranPage::class)->name('pembayaran.page');
-Route::get('/riwayat', HistoryPage::class)->name('riwayat.page');
-Route::get('/profil', ProfilPage::class)->name('profil');
-Route::get('/profil/edit', EditProfilPage::class)->name('edit-profil');
-Route::get('/logout', function (){
+    // Lapangan
+    Route::get('/booking/{lapangan}', BookingPage::class)->name('booking.page');
+    // Payment
+    Route::get('/pembayaran', PembayaranPage::class)->name('pembayaran.page');
+    // History
+    Route::get('/riwayat', HistoryPage::class)->name('riwayat.page');
+    // Profile
+    Route::get('/profil', ProfilPage::class)->name('profil');
+    Route::get('/profil/edit', EditProfilPage::class)->name('profil.edit');
+    Route::put('/profil/update', [EditProfilPage::class, 'update'])->name('profil.update');
+    // Auth user
+    Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');
     });
 });
-// Midtrans Payment Gateway
-// Route::post('/midtrans/notification', [PaymentController::class, 'handleNotification']);
-// Route::get('/midtrans/checkout/{token}', function ($token) {
-//     return view('midtrans.checkout', compact('token'));
-// })->name('midtrans.checkout');
-

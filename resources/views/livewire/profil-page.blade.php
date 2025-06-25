@@ -1,4 +1,4 @@
-<div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10 mb-10">
+<div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg  ">
     <div class="flex items-center mb-4">
         <div class="bg-blue-100 text-blue-700 p-2 rounded-full mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="mt-6">
-        <a href="{{ route('edit-profil') }}"
+        <a href="{{ route('profil.edit') }}"
            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Edit Profil</a>
     </div>
 </div>
