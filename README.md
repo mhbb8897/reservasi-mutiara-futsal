@@ -2,17 +2,21 @@
 
 ## Clone Repository:
 ```
+# Clone repository
 git clone https://github.com/mhbb8897/reservasi-mutiara-futsal.git
+
+# Masuk ke direktori
 cd reservasi-mutiara-futsal
+
 # Install Composer & Nodejs package
 composer install
 npm install
+
 # Salin file .env
 cp .env.example .env
+
 # Generate key
 php artisan key:generate
-
-# Edit konfigurasi database di .env (manual).
 
 # Migrasi database:
 php artisan migrate
