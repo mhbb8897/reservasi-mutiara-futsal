@@ -27,7 +27,7 @@ php artisan db:seed
 # Build file file css dan javascript agar tidak usah menjalankan environment nodejs
 npm run build
 
-Jalankan server Laravel:
+# Jalankan server Laravel:
 php artisan serve
 
 ```
